@@ -1,0 +1,30 @@
+<HomePage controller="HomeController">
+
+  <Scaffold>
+    <appBar>
+      <AppBar>
+        <title>
+          <Text text="'home' | translate" />
+        </title>
+      </AppBar>
+    </appBar>
+
+    <body>
+      <Column crossAxisAlignment="center" mainAxisAlignment="center">
+
+      <!-- <Transform :use="translate">
+        <animation curve="easeOut" duration="milliseconds: 2000" autoTrigger>
+            <offset type="Offset" begin="Offset(0, 0)" end="Offset(50, 200)" />
+        </animation>
+        <Container color="red" width="100" height="100" />
+      </Transform> -->
+
+        <RaisedButton :margin="0 16 8" :width="100 | widthPercent" :text="'login' | translate" onPressed="() => ctrl.gotoLogin(context)"></RaisedButton>
+        <RaisedButton :margin="8 16" :width="75 | widthPercent" :text="'signup' | translate" onPressed="() => ctrl.gotoSignup(context)"></RaisedButton>
+        <RaisedButton :margin="8 16" :width="100 | widthPercent" :text="'list' | translate" onPressed="() => ctrl.gotoList(context)"></RaisedButton>
+        <RaisedButton :margin="8 16" :width="75 | widthPercent" :text="'settings' | translate" onPressed="() => ctrl.gotoSettings(context)"></RaisedButton>
+        <RaisedButton :margin="8 16" :width="75 | widthPercent" :text="'tabs' | translate" onPressed="() => ctrl.gotoTabs(context)"></RaisedButton>
+      </Column>
+    </body>
+  </Scaffold>
+</HomePage>

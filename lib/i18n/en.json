@@ -1,0 +1,14 @@
+{
+    "home": "Home",
+    "login": "Login",
+    "signup": "Signup",
+    "settings": "Settings",
+    "list": "List page",
+    "item": "Detail page",
+    "Tabs": "Tabs page",
+
+    "validations/password-length": "Passwords must be 8 charachter at least",
+    "validations/password-not-match": "Passwords don't match",
+    "validations/invalid-email": "Invalid email address",
+    "required": "Required field"
+}

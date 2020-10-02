@@ -1,0 +1,85 @@
+<SignupPage controller="SignupController">
+
+  <Scaffold>
+    <appBar>
+      <AppBar>
+        <title>
+          <Text text="'signup' | translate" />
+        </title>
+      </AppBar>
+    </appBar>
+    <body>
+        <PageView controller="PageController pageController" :center>
+            <Form>
+                <SingleChildScrollView>
+                    <Column :margin="40 12 12">
+
+                        <!-- <Image :use="asset" :margin="30 0" :height="25 | heightPercent" source="'assets/images/signup.png'" /> -->
+                        <!-- <Icon icon="home" :margin="40 0" size="80" /> -->
+
+                        <!-- https://github.com/waseemdev/vscode-flutter.xml-layout/blob/master/docs/custom-properties.md#10-animation -->
+                        <Container>
+                            <animation duration="milliseconds: 1000" autoTrigger cycles="5">
+                                <color type="color" begin="Colors.blue" end="Colors.red" />
+                                <width type="double" begin="100" end="200" />
+                                <height type="double" begin="100" end="150" />
+                            </animation>
+                        </Container>
+                        
+                        <Card :padding="2 0 6" elevation="3">
+                            <Column>
+                                <!--
+                                    9. :formControl & :formGroup & :formSubmit
+                                    https://github.com/waseemdev/vscode-flutter.xml-layout/blob/master/docs/custom-properties.md
+                                -->
+                                <TextField :formControl="'email'">
+                                    <decoration>
+                                        <InputDecoration contentPadding="const EdgeInsets.symmetric(vertical: 10, horizontal: 16)"
+                                                 labelText="'Email address'" enabledBorder="InputBorder.none"
+                                                errorText="ctrl.formGroup.get('email').firstErrorIfTouched | translate" />
+                                    </decoration>
+                                </TextField>
+
+                                <!-- <Divider :margin="0 8" /> -->
+                                
+                                <TextField :formControl="'password'" obscureText="true">
+                                    <decoration>
+                                        <InputDecoration contentPadding="const EdgeInsets.symmetric(vertical: 10, horizontal: 16)" 
+                                                labelText="'Password'" enabledBorder="InputBorder.none"
+                                                errorText="ctrl.formGroup.get('password').firstErrorIfTouched | translate">
+                                        </InputDecoration>
+                                    </decoration>
+                                </TextField>
+                                
+                                <TextField :formControl="'confirmPassword'" obscureText="true">
+                                    <decoration>
+                                        <InputDecoration contentPadding="const EdgeInsets.symmetric(vertical: 10, horizontal: 16)"
+                                                labelText="'Consfirm password'" enabledBorder="InputBorder.none"
+                                                errorText="(ctrl.formGroup.get('confirmPassword').firstErrorIfTouched | translate) ?? ctrl.formGroup.invalid ? (ctrl.formGroup.getError() | translate) : null">
+                                        </InputDecoration>
+                                    </decoration>
+                                </TextField>
+                            </Column>
+                        </Card>
+
+                        <RaisedButton :margin="30 0 0" padding="10 0" :formSubmit shape="RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))">
+                            <Row mainAxisAlignment="center" crossAxisAlignment="center">
+                                <Text text="'Register'" />
+                                <Icon icon="arrow_forward" />
+                            </Row>
+                        </RaisedButton>
+                        
+                        <Text text="ctrl.errorMessage | behavior" :margin="16" />
+
+                    </Column>
+                </SingleChildScrollView>
+            </Form>
+
+            <Column :center>
+                <Text text="'signup result'" />
+            </Column>
+        </PageView>
+
+    </body>
+  </Scaffold>
+</SignupPage>

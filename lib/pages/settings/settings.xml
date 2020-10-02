@@ -1,0 +1,47 @@
+<SettingsPage controller="SettingsController" routeAware
+    xmlns:themeChanger="package:flutter_xmllayout_example/services/ThemeChanger.dart"
+    xmlns:localeChanger="package:flutter_xmllayout_example/services/LocaleChanger.dart"
+    >
+
+	<provider name="themeChanger" type="ThemeChanger" />
+	<provider name="localeChanger" type="LocaleChanger" />
+
+	<Scaffold>
+		<appBar>
+			<AppBar>
+				<title>
+					<Text text="'settings' | translate" />
+				</title>
+			</AppBar>
+		</appBar>
+		<body>
+			<Column>
+
+				<SwitchListTile :formControl="'darkModeEnabled'">
+					<title>
+						<Text text="'Dark Mode'" />
+					</title>
+				</SwitchListTile>
+
+				<ListTile>
+					<title>
+						<Text text="'Language'" />
+					</title>
+					<trailing>
+						<DropdownButtonHideUnderline>
+							<DropdownButton :formControl="'selectedLocale'">
+								<items>
+									<DropdownMenuItem value="'ar'">
+										<Text text="'العربية'" />
+									</DropdownMenuItem>
+									<DropdownMenuItem value="'en'" :text="'English'" />
+								</items>
+							</DropdownButton>
+						</DropdownButtonHideUnderline>
+					</trailing>
+				</ListTile>
+
+			</Column>
+		</body>
+    </Scaffold>
+</SettingsPage>

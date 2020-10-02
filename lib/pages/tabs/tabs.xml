@@ -1,0 +1,56 @@
+<TabsPage controller="TabsPageController">
+
+	<with mixin="TickerProviderStateMixin"></with>
+	<var name="tabController" value="TabController(length: 3, vsync: this)"></var>
+  
+  <Scaffold>
+    <appBar>
+      <AppBar>
+        <title>
+          <Text text="'tabs' | translate" />
+        </title>
+      </AppBar>
+    </appBar>
+
+    <body>
+			<TabBarView controller="tabController" physics="NeverScrollableScrollPhysics()">
+				<Column mainAxisAlignment="center">
+					<Text text="'page 1'" :margin="100 0" />
+					<RaisedButton :text="'Goto 2'" onPressed="() => ctrl.selectTab(1)"></RaisedButton>
+				</Column>
+				<Column mainAxisAlignment="center">
+					<Text text="'page 2'" :margin="100 0" />
+					<RaisedButton :text="'Goto 3'" onPressed="() => ctrl.selectTab(2)"></RaisedButton>
+				</Column>
+				<Column mainAxisAlignment="center">
+					<Text text="'page 3'" :margin="100 0" />
+					<RaisedButton :text="'Back to 1'" onPressed="() => ctrl.selectTab(0)"></RaisedButton>
+				</Column>
+			</TabBarView>
+    </body>
+		
+		<bottomNavigationBar>
+			<Material elevation="8" color="Colors.white">
+				<TabBar controller="tabController" onTap="(i) => ctrl.selectTab(i)">
+					<tabs>
+						<Tab>
+							<icon>
+								<Icon icon="home" color="(ctrl.selectedTab | behavior) == 0 ? Colors.blue : Colors.grey"></Icon>
+							</icon>
+						</Tab>
+						<Tab>
+							<icon>
+								<Icon icon="widgets" color="(ctrl.selectedTab | behavior) == 1 ? Colors.blue : Colors.grey"></Icon>
+							</icon>
+						</Tab>
+						<Tab>
+							<icon>
+								<Icon icon="info" color="(ctrl.selectedTab | behavior) == 2 ? Colors.blue : Colors.grey"></Icon>
+							</icon>
+						</Tab>
+					</tabs>
+				</TabBar>
+			</Material>
+		</bottomNavigationBar>
+  </Scaffold>
+</TabsPage>

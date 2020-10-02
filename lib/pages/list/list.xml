@@ -1,0 +1,45 @@
+<ListPage controller="ListController"
+	xmlns:itemmodel="package:flutter_xmllayout_example/models/ItemModel.dart"
+	xmlns:dataservice="package:flutter_xmllayout_example/services/DataService.dart"
+	xmlns:infinitlistview="package:flutter_xmllayout_example/components/InfiniteListView.dart">
+  
+  <provider type="DataService" name="dataService"></provider>
+
+  <Scaffold>
+    <appBar>
+      <AppBar>
+        <title>
+          <Text text="'list' | translate" />
+        </title>
+      </AppBar>
+    </appBar>
+
+    <body>
+    	<RefreshIndicator onRefresh="ctrl.refreshData">
+            <InfiniteListView :itemBuilder="ItemModel item of ctrl.items"
+						loadMore="ctrl.loadMore"
+						itemCount="ctrl.getItemCount"
+						hasMore="ctrl.hasMore"
+						physics="const AlwaysScrollableScrollPhysics()">
+                
+                <Card margin="4 4" :onTap="() => ctrl.gotoItem(item, context)">
+                    <Column crossAxisAlignment="center">
+                        <Image :use="network" source="item.imageUrl" fit="BoxFit.cover"
+                                width="100 | widthPercent" height="180"
+                               :hero="item.imageUrl + item.id.toString()" />
+                        <Text text="item.title" :margin="16" />
+                    </Column>
+                </Card>
+
+                <bottomWidget>
+                    <Center :padding="20 0 50">
+                        <CircularProgressIndicator strokeWidth="2" :width="28" :height="28" />
+                    </Center>
+                </bottomWidget>
+
+            </InfiniteListView>
+
+        </RefreshIndicator>
+    </body>
+  </Scaffold>
+</ListPage>

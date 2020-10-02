@@ -1,0 +1,25 @@
+<ItemPage
+	xmlns:itemmodel="package:flutter_xmllayout_example/models/ItemModel.dart">
+
+  <param type="ItemModel" name="item" required />
+
+  <Scaffold>
+    <appBar>
+      <AppBar>
+        <title>
+          <Text text="'item' | translate" />
+        </title>
+      </AppBar>
+    </appBar>
+    <body>
+        <Card>
+            <Column crossAxisAlignment="center">
+                <Image :use="network" source="widget.item.imageUrl" fit="BoxFit.cover"
+                        width="100 | widthPercent" height="400"
+                        :hero="widget.item.imageUrl + widget.item.id.toString()"/>
+                <Text text="widget.item.title" :margin="16" />
+            </Column>
+        </Card>
+    </body>
+  </Scaffold>
+</ItemPage>
