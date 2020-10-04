@@ -1,7 +1,8 @@
-<ItemPage
+<ItemPage controller="ItemPageController"
 	xmlns:itemmodel="package:flutter_xmllayout_example/models/ItemModel.dart">
 
   <param type="ItemModel" name="item" required />
+  <param type="Animation<double>" name="animation" />
 
   <Scaffold>
     <appBar>
@@ -13,12 +14,26 @@
     </appBar>
     <body>
         <Card>
-            <Column crossAxisAlignment="center">
-                <Image :use="network" source="widget.item.imageUrl" fit="BoxFit.cover"
-                        width="100 | widthPercent" height="400"
-                        :hero="widget.item.imageUrl + widget.item.id.toString()"/>
-                <Text text="widget.item.title" :margin="16" />
-            </Column>
+					<Column crossAxisAlignment="center">
+						<Image :use="network" source="widget.item.imageUrl" fit="BoxFit.cover"
+										width="100 | widthPercent" height="400"
+										:hero="widget.item.imageUrl + widget.item.id.toString()"/>
+						
+						<!-- custom animation using AnimatedBuilder -->
+						<AnimatedBuilder animation="widget.animation">
+							<builder name="builder" params="context, child">
+								<SlideTransition position="ctrl.animatePosition()">
+									<Container color="Colors.grey.shade300" margin="10 0 0" width="100 | widthPercent" height="80">
+										<Text text="widget.item.title" :center>
+											<style>
+												<TextStyle fontSize="20" />
+											</style>
+										</Text>
+									</Container>
+								</SlideTransition>
+							</builder>
+						</AnimatedBuilder>
+					</Column>
         </Card>
     </body>
   </Scaffold>

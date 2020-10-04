@@ -26,7 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   provider: ^3.0.0+1
-  flutter_xmllayout_helpers: 
+  flutter_xmllayout_helpers: 0.0.8
   rxdart: ^0.22.0
   shared_preferences: ^0.5.3+1
 

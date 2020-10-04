@@ -19,11 +19,11 @@
 
                         <!-- https://github.com/waseemdev/vscode-flutter.xml-layout/blob/master/docs/custom-properties.md#10-animation -->
                         <Container>
-                            <animation duration="milliseconds: 1000" autoTrigger cycles="5">
+                            <apply-animation duration="milliseconds: 1000" autoTrigger cycles="5">
                                 <color type="color" begin="Colors.blue" end="Colors.red" />
                                 <width type="double" begin="100" end="200" />
                                 <height type="double" begin="100" end="150" />
-                            </animation>
+                            </apply-animation>
                         </Container>
                         
                         <Card :padding="2 0 6" elevation="3">

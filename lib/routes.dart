@@ -23,7 +23,14 @@ getRoute(RouteSettings settings) {
 		case '/list':
 			return MaterialPageRoute(builder: (context) => ListPage());
 		case '/item':
-			return MaterialPageRoute(builder: (context) => ItemPage(item: settings.arguments as ItemModel));
+			//	use PageRouteBuilder for custom route animation
+			return PageRouteBuilder(
+				pageBuilder: (context, animation, secondaryAnimation) {
+					return ItemPage(item: settings.arguments as ItemModel, animation: animation);
+				},
+				transitionDuration: Duration(milliseconds: 600)
+			);
+			// return MaterialPageRoute(builder: (context) => ItemPage(item: settings.arguments as ItemModel));
 	}
 	return MaterialPageRoute(builder: (context) => HomePage());
 }
